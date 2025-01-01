@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mkdocs-glightbox-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mkdocs-glightbox-{{ version }}.tar.gz
   sha256: 392b34207bf95991071a16d5f8916d1d2f2cd5d5bb59ae2997485ccd778c70d9
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -28,6 +28,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://blueswen.github.io/mkdocs-glightbox

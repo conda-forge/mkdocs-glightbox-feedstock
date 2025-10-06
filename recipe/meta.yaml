@@ -21,7 +21,8 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - selectolax
+    - selectolax ==0.3.29
+
 
 test:
   imports:

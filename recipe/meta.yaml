@@ -18,8 +18,10 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - hatchling
   run:
     - python >={{ python_min }}
+    - selectolax ==0.3.29
 
 test:
   imports:
